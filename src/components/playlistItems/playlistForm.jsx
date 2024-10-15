@@ -22,7 +22,6 @@ const PlaylistForm = ({ open, handleClose, handleFormSubmit }) => {
           component: "form",
           onSubmit: (event) => {
             event.preventDefault();
-
             handleFormSubmit(formInput);
             setFormInput("");
           },

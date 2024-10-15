@@ -3,11 +3,11 @@ class Storage {
     localStorage.setItem(key, JSON.stringify(data));
   }
   get(key) {
-    const json = localStorage.getItem(key);
-    return JSON.parse(json);
+    const json = localStorage.getItem(key)
+    return JSON.parse(json)
   }
 }
 
-const storage = new Storage();
+const storage = new Storage()
 
-export default storage;
+export default storage

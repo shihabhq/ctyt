@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Grid2, Stack } from "@mui/material";
 import { PlayCircleOutline } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const PlaylistCard = ({ playlist }) => {
   const {
@@ -27,10 +28,11 @@ const PlaylistCard = ({ playlist }) => {
 
           height: "100%",
           flexDirection: "column",
+          borderRadius: "12px",
         }}
       >
         <CardMedia
-          sx={{ height: 200, borderRadius: "20px" }}
+          sx={{ height: 200 }}
           image={thumbnail.url}
           title={playlistTitle}
         />
@@ -48,9 +50,11 @@ const PlaylistCard = ({ playlist }) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="medium" startIcon={<PlayCircleOutline />}>
-            Play
-          </Button>
+          <Link to={`/player/${playlistId}`}>
+            <Button size="medium" startIcon={<PlayCircleOutline />}>
+              Play
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </Grid2>

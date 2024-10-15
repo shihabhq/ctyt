@@ -8,9 +8,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Button, Container, Stack } from "@mui/material";
 import PlaylistForm from "../playlistItems/playlistForm";
+import { Link } from "react-router-dom";
 
-
-function NavBar({getPlaylistById}) {
+function NavBar({ getPlaylistById }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -20,10 +20,10 @@ function NavBar({getPlaylistById}) {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleFormSubmit = (playlistId)=>{
-    getPlaylistById(playlistId)
-    handleClose()
-  }
+  const handleFormSubmit = (playlistId) => {
+    getPlaylistById(playlistId);
+    handleClose();
+  };
 
   return (
     <>
@@ -33,13 +33,20 @@ function NavBar({getPlaylistById}) {
           <Container maxWidth="lg" sx={{ my: 2 }}>
             <Toolbar>
               <Stack sx={{ flexGrow: 1 }}>
-                <Typography
-                  variant="h4"
-                  component="div"
-                  sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-                >
-                  Clean Youtube
-                </Typography>
+                <Link to="/" style={{textDecoration:'none'}}>
+                  <Typography
+                    variant="h4"
+                    component="div"
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "none", sm: "block" },
+                      textDecoration: "none",
+                      color: "white",
+                    }}
+                  >
+                    Clean Youtube
+                  </Typography>
+                </Link>
                 <Typography
                   variant="body1"
                   component="div"
@@ -48,7 +55,9 @@ function NavBar({getPlaylistById}) {
                   By Shihab
                 </Typography>
               </Stack>
-              <Button variant="contained" onClick={handleClickOpen}>Add PlayList</Button>
+              <Button variant="contained" onClick={handleClickOpen}>
+                Add PlayList
+              </Button>
             </Toolbar>
           </Container>
         </AppBar>
